@@ -52,14 +52,15 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:gravity="center_horizontal"
-            android:text="20.02.1017"
+            android:text="2017.07.05"
             android:textColor="#ffffff" />
 
         <com.example.hppc.uidemo.GifImageView
             android:id="@+id/GifImageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/ripple_effect"/>
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
@@ -69,7 +70,9 @@
         android:layout_alignBottom="@id/ll1"
         android:layout_alignEnd="@id/ll1"
         android:layout_marginRight="5dp"
-        android:src="@drawable/ic_add_circle_outline_black" />
+        android:src="@drawable/ic_equalizer_black_24dp"
+        android:tint="#FFFFFF"
+        android:background="@drawable/ripple_effect"/>
 
     <LinearLayout
         android:layout_width="match_parent"

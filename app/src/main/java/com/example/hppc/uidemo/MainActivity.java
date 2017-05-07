@@ -1,17 +1,25 @@
 package com.example.hppc.uidemo;
 
 import android.Manifest;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.RippleDrawable;
 import android.net.Uri;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private float start = (float) 92.3;
     private float end = (float) 108.9;
     Thread thread;
+    private RippleDrawable rippleDrawable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +59,10 @@ public class MainActivity extends AppCompatActivity {
         linearLayout = (LinearLayout) findViewById(R.id.ll1);
 
         actionButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
+                int radius = Math.max(linearLayout.getWidth(), linearLayout.getHeight());
                 actionButton.setVisibility(View.INVISIBLE);
                 backButton.setVisibility(View.VISIBLE);
                 gifImageView.setGifImageResource(R.drawable.gifimage2);
@@ -62,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 //                new Thread(new Runnable() {
 //
 //                    public void run() {
-//                        while (end>start) {
+//                        while (end == start) {
 //                            try {
 //                                Thread.sleep(1000);
 //                            } catch (InterruptedException e) {
